@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+
+:root {
+    --color-principal: #0F1B26;
+    --color-letra: #F2E3D5;
+    --color-letra-secundaria: #DF7A1D;
+    --color-btn: #0c7515;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    height: 100%;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.github {
+    color: var(--color-letra-secundaria);
+}
+
+h1 {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: normal;
+    
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: normal;
+    color: var(--color-letra-secundaria);
+}
+
+
+.header {
+    padding: 0 100px;
+    background-color: var(--color-principal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 180px;
+    object-fit: contain
+}
+
+.nav ul {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    font-family: "Fjalla One", sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: var(--color-letra);
+}
+
+.nav ul li {
+    position: relative;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+/* hover color */
+.nav ul li:hover {
+    color: #0c7515;
+}
+
+/* línea animada debajo */
+.nav ul li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #0c7515;
+    transition: width 0.3s ease;
+}
+
+.nav ul li:hover::after {
+    width: 100%;
+}
+
+.main {
+    background-color: var(--color-principal);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "menu_principal"
+        "books";
+}
+
+.menu_principal {
+    min-height: 100vh;
+    grid-area: menu_principal;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    align-items: start;
+    grid-template-areas:
+        "izquierda derecha";
+}
+
+.menu_izquierda {
+    grid-area: izquierda;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    padding-top: 120px;
+    font-family: "Fjalla One";
+    color: var(--color-letra);
+    text-align: left;
+    font-size: 60px;
+    padding-left: 100px;
+}
+
+.menu_derecha {
+    grid-area: derecha;
+}
+
+.img-main {
+    width: 1000px;
+}
+
+
+/* From Uiverse.io by TCdesign-dev */ 
+.btn {
+ padding-left: 33px;
+ padding-right: 33px;
+ padding-bottom: 16px;
+ padding-top: 16px;
+ border-radius: 9px;
+ background: var(--color-btn);
+ border: none;
+ font-family: inherit;
+ text-align: center;
+ cursor: pointer;
+ transition: 0.4s;
+ color: var(--color-letra);
+ font-size: 1.2rem;
+}
+
+.btn:hover {
+ box-shadow: 7px 5px 56px -14px #0f7e18;
+}
+
+.btn:active {
+ transform: scale(0.97);
+ box-shadow: 7px 5px 56px -10px #0f7e18;
+}
+
+
+.books {
+    position: relative;
+    padding: 40px 200px;
+    grid-area: books;
+    background-color: var(--color-letra);
+    display: grid;
+    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* From Uiverse.io by Artahs */ 
+.card{
+    width: 320px;
+    height: 300px;
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.25s ease;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* efecto flotante */
+.card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.title {
+    font-size: 38px;
+}
+
+.author {
+    font-size: 20px;
+}
+
+.pages {
+    font-size: 20px;
+}
+
+.read {
+    font-size: 20px;
+}
+
+.botonera {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* From Uiverse.io by vinodjangid07 */ 
+.btn-edit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 150px;
+  height: 40px;
+  border: none;
+  padding: 0px 20px;
+  background-color: var(--color-btn);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition-duration: .3s;
+}
+
+.svg {
+  width: 13px;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  fill: white;
+  transition-duration: .3s;
+}
+
+.btn-edit:hover {
+  color: transparent;
+}
+
+.btn-edit:hover svg {
+  right: 43%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  transition-duration: .3s;
+}
+
+.btn-edit:active {
+  transform: translate(3px , 3px);
+  transition-duration: .3s;
+  box-shadow: 2px 2px 0px #06460b;
+}
+
+.btn-borrar {
+    background-color: red;
+}
+
+
+
+
+/*Contenedor form*/
+
+.container-form {
+  position:fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 1000;
+}
+
+.form_area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #EDDCD9;
+  height: auto;
+  width: auto;
+  max-width: 400px;
+  border: 2px solid #264143;
+  border-radius: 20px;
+  box-shadow: 3px 4px 0px 1px #E99F4C;
+  padding: 0 15px;
+}
+
+.title-form {
+  font-family: "Fjalla One", sans-serif;
+  color: #141b1b;
+  font-weight: 900;
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.sub_title {
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 500;
+  margin: 5px 0;
+  font-size: 1.2rem;
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin: 10px;
+}
+
+.form_style {
+  outline: none;
+  border: 2px solid #264143;
+  box-shadow: 3px 4px 0px 1px #E99F4C;
+  width: 290px;
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.form_style:focus, .btn:focus {
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px #E99F4C;
+}
+
+.btn-add {
+  padding: 15px;
+  margin: 10px 0px 25px 0px;
+  width: 120px;
+  font-size: 15px;
+  background: #f0313a;
+  border-radius: 10px;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px 0px #E99F4C;
+}
+
+.btn-add:hover {
+  opacity: .9;
+}
+
+.form_btn {
+    display: flex;
+    gap: 0 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-agregar {
+    background-color: #8690ec;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.container-form{
+    display: none;
+
+    position: fixed;
+    background: rgba(0, 0, 0, 0.55);
+    inset: 0;
+    z-index: 1000;
+
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.head_books {
+    font-size: 100px;
+}
+
+
+/* From Uiverse.io by Yaya12085 */ 
+.Btn-add {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 65px;
+  height: 65px;
+  border-radius: calc(45px/2);
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background: var(--color-letra-secundaria);
+  z-index: 999;
+  bottom: 50px;
+  right: 65px;
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  font-size: 2.2em;
+  color: var(--color-letra);
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: var(--color-letra);
+  font-size: 1.4em;
+  font-weight: 500;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn-add:hover {
+  width: 125px;
+  transition-duration: .3s;
+}
+
+.Btn-add:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 15px;
+}
+/* hover effect button's text */
+.Btn-add:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 15px;
+}
+/* button click effect*/
+.Btn-add:active {
+  transform: translate(2px ,2px);
+}
