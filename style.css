@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
-
 :root {
     --color-principal: #0F1B26;
     --color-letra: #F2E3D5;
@@ -35,14 +34,13 @@ a {
 }
 
 h1 {
-    font-size: 70px;
+    font-size: clamp(36px, 6vw, 70px);
     font-weight: bold;
 }
 
 h2 {
-    font-size: 30px;
+    font-size: clamp(18px, 3vw, 30px);
     font-weight: normal;
-    
 }
 
 h3 {
@@ -51,9 +49,9 @@ h3 {
     color: var(--color-letra-secundaria);
 }
 
-
+/* ── Header ── */
 .header {
-    padding: 0 100px;
+    padding: 0 clamp(20px, 5vw, 100px);
     background-color: var(--color-principal);
     display: flex;
     justify-content: space-between;
@@ -61,16 +59,16 @@ h3 {
 }
 
 .logo img {
-    width: 180px;
-    object-fit: contain
+    width: clamp(100px, 15vw, 180px);
+    object-fit: contain;
 }
 
 .nav ul {
     display: flex;
-    gap: 40px;
+    gap: clamp(16px, 3vw, 40px);
     list-style: none;
     font-family: "Fjalla One", sans-serif;
-    font-size: 30px;
+    font-size: clamp(18px, 2.5vw, 30px);
     font-weight: normal;
     color: var(--color-letra);
 }
@@ -81,12 +79,10 @@ h3 {
     transition: color 0.3s ease;
 }
 
-/* hover color */
 .nav ul li:hover {
     color: #0c7515;
 }
 
-/* línea animada debajo */
 .nav ul li::after {
     content: "";
     position: absolute;
@@ -102,6 +98,7 @@ h3 {
     width: 100%;
 }
 
+/* ── Main ── */
 .main {
     background-color: var(--color-principal);
     display: grid;
@@ -120,8 +117,7 @@ h3 {
     grid-template-rows: auto;
     justify-items: center;
     align-items: start;
-    grid-template-areas:
-        "izquierda derecha";
+    grid-template-areas: "izquierda derecha";
 }
 
 .menu_izquierda {
@@ -135,92 +131,91 @@ h3 {
     font-family: "Fjalla One";
     color: var(--color-letra);
     text-align: left;
-    font-size: 60px;
-    padding-left: 100px;
+    font-size: clamp(30px, 4vw, 60px);
+    padding-left: clamp(20px, 5vw, 100px);
 }
 
 .menu_derecha {
     grid-area: derecha;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .img-main {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
 }
 
-
-/* From Uiverse.io by TCdesign-dev */ 
+/* ── Botón principal ── */
 .btn {
- padding-left: 33px;
- padding-right: 33px;
- padding-bottom: 16px;
- padding-top: 16px;
- border-radius: 9px;
- background: var(--color-btn);
- border: none;
- font-family: inherit;
- text-align: center;
- cursor: pointer;
- transition: 0.4s;
- color: var(--color-letra);
- font-size: 1.2rem;
+    padding: 16px 33px;
+    border-radius: 9px;
+    background: var(--color-btn);
+    border: none;
+    font-family: inherit;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+    color: var(--color-letra);
+    font-size: 1.2rem;
 }
 
 .btn:hover {
- box-shadow: 7px 5px 56px -14px #0f7e18;
+    box-shadow: 7px 5px 56px -14px #0f7e18;
 }
 
 .btn:active {
- transform: scale(0.97);
- box-shadow: 7px 5px 56px -10px #0f7e18;
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px #0f7e18;
 }
 
-
+/* ── Grid de libros ── */
 .books {
     position: relative;
-    padding: 40px 200px;
+    padding: 40px clamp(20px, 8vw, 200px);
     grid-area: books;
     background-color: var(--color-letra);
     display: grid;
-    grid-template-columns: repeat(4, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
-/* From Uiverse.io by Artahs */ 
-.card{
-    width: 320px;
-    height: 300px;
+/* ── Cards ── */
+.card {
+    width: 100%;
+    min-height: 300px;
     background: white;
     border-radius: 16px;
     padding: 25px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     transition: all 0.25s ease;
-    
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
 }
 
-/* efecto flotante */
-.card:hover{
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 .title {
-    font-size: 38px;
+    font-size: clamp(24px, 3vw, 38px);
 }
 
 .author {
-    font-size: 20px;
+    font-size: clamp(14px, 2vw, 20px);
 }
 
 .pages {
-    font-size: 20px;
+    font-size: clamp(14px, 2vw, 20px);
 }
 
 .read {
-    font-size: 20px;
+    font-size: clamp(14px, 2vw, 20px);
 }
 
 .botonera {
@@ -228,145 +223,146 @@ h3 {
     gap: 10px;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-
-/* From Uiverse.io by vinodjangid07 */ 
+/* ── Botones editar/eliminar ── */
 .btn-edit {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 150px;
-  height: 40px;
-  border: none;
-  padding: 0px 20px;
-  background-color: var(--color-btn);
-  color: white;
-  font-weight: 600;
-  font-size: 15px;
-  cursor: pointer;
-  border-radius: 10px;
-  transition-duration: .3s;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 150px;
+    height: 40px;
+    border: none;
+    padding: 0px 20px;
+    background-color: var(--color-btn);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition-duration: .3s;
 }
 
 .svg {
-  width: 13px;
-  position: absolute;
-  right: 0;
-  margin-right: 20px;
-  fill: white;
-  transition-duration: .3s;
+    width: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    fill: white;
+    transition-duration: .3s;
 }
 
 .btn-edit:hover {
-  color: transparent;
+    color: transparent;
 }
 
 .btn-edit:hover svg {
-  right: 43%;
-  margin: 0;
-  padding: 0;
-  border: none;
-  transition-duration: .3s;
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: .3s;
 }
 
 .btn-edit:active {
-  transform: translate(3px , 3px);
-  transition-duration: .3s;
-  box-shadow: 2px 2px 0px #06460b;
+    transform: translate(3px, 3px);
+    transition-duration: .3s;
+    box-shadow: 2px 2px 0px #06460b;
 }
 
 .btn-borrar {
     background-color: red;
 }
 
-
-
-
-/*Contenedor form*/
-
+/* ── Formulario ── */
 .container-form {
-  position:fixed;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  z-index: 1000;
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
 }
 
 .form_area {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #EDDCD9;
-  height: auto;
-  width: auto;
-  max-width: 400px;
-  border: 2px solid #264143;
-  border-radius: 20px;
-  box-shadow: 3px 4px 0px 1px #E99F4C;
-  padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #EDDCD9;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #264143;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px #E99F4C;
+    padding: 0 15px;
 }
 
 .title-form {
-  font-family: "Fjalla One", sans-serif;
-  color: #141b1b;
-  font-weight: 900;
-  font-size: 2rem;
-  margin-top: 20px;
+    font-family: "Fjalla One", sans-serif;
+    color: #141b1b;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-top: 20px;
 }
 
 .sub_title {
-  font-family: "Fjalla One", sans-serif;
-  font-weight: 500;
-  margin: 5px 0;
-  font-size: 1.2rem;
+    font-family: "Fjalla One", sans-serif;
+    font-weight: 500;
+    margin: 5px 0;
+    font-size: 1.2rem;
 }
 
 .form_group {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    margin: 10px;
 }
 
 .form_style {
-  outline: none;
-  border: 2px solid #264143;
-  box-shadow: 3px 4px 0px 1px #E99F4C;
-  width: 290px;
-  padding: 12px 10px;
-  border-radius: 4px;
-  font-size: 15px;
+    outline: none;
+    border: 2px solid #264143;
+    box-shadow: 3px 4px 0px 1px #E99F4C;
+    width: 290px;
+    padding: 12px 10px;
+    border-radius: 4px;
+    font-size: 15px;
 }
 
-.form_style:focus, .btn:focus {
-  transform: translateY(4px);
-  box-shadow: 1px 2px 0px 0px #E99F4C;
+.form_style:focus {
+    transform: translateY(4px);
+    box-shadow: 1px 2px 0px 0px #E99F4C;
 }
 
 .btn-add {
-  padding: 15px;
-  margin: 10px 0px 25px 0px;
-  width: 120px;
-  font-size: 15px;
-  background: #f0313a;
-  border-radius: 10px;
-  font-weight: 800;
-  box-shadow: 3px 3px 0px 0px #E99F4C;
+    padding: 15px;
+    margin: 10px 0px 25px 0px;
+    width: 120px;
+    font-size: 15px;
+    background: #f0313a;
+    border-radius: 10px;
+    font-weight: 800;
+    box-shadow: 3px 3px 0px 0px #E99F4C;
+    border: none;
+    cursor: pointer;
+    color: white;
 }
 
 .btn-add:hover {
-  opacity: .9;
+    opacity: .9;
 }
 
 .form_btn {
     display: flex;
-    gap: 0 10px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .form-agregar {
@@ -377,85 +373,68 @@ h3 {
     display: flex;
     flex-direction: row;
     gap: 5px;
+    align-items: center;
 }
 
-.container-form{
-    display: none;
-
-    position: fixed;
-    background: rgba(0, 0, 0, 0.55);
-    inset: 0;
-    z-index: 1000;
-
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.head_books {
-    font-size: 100px;
-}
-
-
-/* From Uiverse.io by Yaya12085 */ 
+/* ── Botón flotante ── */
 .Btn-add {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 65px;
-  height: 65px;
-  border-radius: calc(45px/2);
-  border: none;
-  cursor: pointer;
-  position: fixed;
-  overflow: hidden;
-  transition-duration: .3s;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-  background: var(--color-letra-secundaria);
-  z-index: 999;
-  bottom: 50px;
-  right: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 65px;
+    height: 65px;
+    border-radius: calc(65px / 2);
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    overflow: hidden;
+    transition-duration: .3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+    background: var(--color-letra-secundaria);
+    z-index: 999;
+    bottom: 50px;
+    right: 65px;
 }
 
-/* plus sign */
 .sign {
-  width: 100%;
-  font-size: 2.2em;
-  color: var(--color-letra);
-  transition-duration: .3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    font-size: 2.2em;
+    color: var(--color-letra);
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-/* text */
+
 .text {
-  position: absolute;
-  right: 0%;
-  width: 0%;
-  opacity: 0;
-  color: var(--color-letra);
-  font-size: 1.4em;
-  font-weight: 500;
-  transition-duration: .3s;
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: var(--color-letra);
+    font-size: 1.4em;
+    font-weight: 500;
+    transition-duration: .3s;
 }
-/* hover effect on button width */
+
 .Btn-add:hover {
-  width: 125px;
-  transition-duration: .3s;
+    width: 125px;
+    transition-duration: .3s;
 }
 
 .Btn-add:hover .sign {
-  width: 30%;
-  transition-duration: .3s;
-  padding-left: 15px;
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 15px;
 }
-/* hover effect button's text */
+
 .Btn-add:hover .text {
-  opacity: 1;
-  width: 70%;
-  transition-duration: .3s;
-  padding-right: 15px;
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 15px;
 }
-/* button click effect*/
+
 .Btn-add:active {
-  transform: translate(2px ,2px);
+    transform: translate(2px, 2px);
 }
