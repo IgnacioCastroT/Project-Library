@@ -56,19 +56,24 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    min-height: 64px;
 }
 
 .logo img {
     width: clamp(100px, 15vw, 180px);
     object-fit: contain;
+    display: block;
 }
 
 .nav ul {
     display: flex;
-    gap: clamp(16px, 3vw, 40px);
+    flex-wrap: wrap;
+    gap: clamp(12px, 3vw, 40px);
     list-style: none;
     font-family: "Fjalla One", sans-serif;
-    font-size: clamp(18px, 2.5vw, 30px);
+    font-size: clamp(16px, 2.5vw, 30px);
     font-weight: normal;
     color: var(--color-letra);
 }
@@ -111,6 +116,7 @@ h3 {
 
 .menu_principal {
     min-height: 100vh;
+    min-height: 100svh;
     grid-area: menu_principal;
     display: grid;
     grid-template-columns: 1fr 2fr;
@@ -127,25 +133,30 @@ h3 {
     justify-content: center;
     align-items: start;
     gap: 20px;
-    padding-top: 120px;
+    padding-top: clamp(40px, 10vh, 120px);
     font-family: "Fjalla One";
     color: var(--color-letra);
     text-align: left;
     font-size: clamp(30px, 4vw, 60px);
     padding-left: clamp(20px, 5vw, 100px);
+    padding-right: clamp(16px, 2vw, 40px);
 }
 
 .menu_derecha {
     grid-area: derecha;
     width: 100%;
+    max-width: 1000px;
+    height: auto;
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
     align-items: center;
 }
 
 .img-main {
     width: 100%;
     max-width: 1000px;
+    height: auto;
+    display: block;
 }
 
 /* ── Botón principal ── */
@@ -159,7 +170,7 @@ h3 {
     cursor: pointer;
     transition: 0.4s;
     color: var(--color-letra);
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .btn:hover {
@@ -174,7 +185,7 @@ h3 {
 /* ── Grid de libros ── */
 .books {
     position: relative;
-    padding: 40px clamp(20px, 8vw, 200px);
+    padding: 40px clamp(16px, 8vw, 200px);
     grid-area: books;
     background-color: var(--color-letra);
     display: grid;
@@ -203,19 +214,19 @@ h3 {
 }
 
 .title {
-    font-size: clamp(24px, 3vw, 38px);
+    font-size: clamp(20px, 3vw, 38px);
 }
 
 .author {
-    font-size: clamp(14px, 2vw, 20px);
+    font-size: clamp(13px, 2vw, 20px);
 }
 
 .pages {
-    font-size: clamp(14px, 2vw, 20px);
+    font-size: clamp(13px, 2vw, 20px);
 }
 
 .read {
-    font-size: clamp(14px, 2vw, 20px);
+    font-size: clamp(13px, 2vw, 20px);
 }
 
 .botonera {
@@ -306,7 +317,7 @@ h3 {
     font-family: "Fjalla One", sans-serif;
     color: #141b1b;
     font-weight: 900;
-    font-size: 2rem;
+    font-size: clamp(1.4rem, 4vw, 2rem);
     margin-top: 20px;
 }
 
@@ -314,7 +325,7 @@ h3 {
     font-family: "Fjalla One", sans-serif;
     font-weight: 500;
     margin: 5px 0;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
 .form_group {
@@ -322,13 +333,15 @@ h3 {
     flex-direction: column;
     align-items: baseline;
     margin: 10px;
+    width: 100%;
 }
 
 .form_style {
     outline: none;
     border: 2px solid #264143;
     box-shadow: 3px 4px 0px 1px #E99F4C;
-    width: 290px;
+    width: 100%;
+    max-width: 290px;
     padding: 12px 10px;
     border-radius: 4px;
     font-size: 15px;
@@ -392,8 +405,8 @@ h3 {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
     background: var(--color-letra-secundaria);
     z-index: 999;
-    bottom: 50px;
-    right: 65px;
+    bottom: clamp(16px, 4vw, 50px);
+    right: clamp(16px, 4vw, 65px);
 }
 
 .sign {
@@ -437,4 +450,90 @@ h3 {
 
 .Btn-add:active {
     transform: translate(2px, 2px);
+}
+
+
+
+
+
+@media (max-width: 900px) {
+    .menu_principal {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .books {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+}
+
+
+@media (max-width: 768px) {
+    .menu_principal {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "izquierda"
+            "derecha";
+        min-height: auto;
+        padding-bottom: 40px;
+    }
+
+    .menu_izquierda {
+        align-items: center;
+        text-align: center;
+        padding-left: clamp(20px, 5vw, 60px);
+        padding-right: clamp(20px, 5vw, 60px);
+        padding-top: clamp(40px, 8vh, 80px);
+    }
+
+    .menu_derecha {
+        justify-content: center;
+        padding: 0 20px;
+    }
+
+    .img-main {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        padding: 16px 20px;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .nav ul {
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .books {
+        grid-template-columns: 1fr;
+        padding: 24px 16px;
+        gap: 16px;
+    }
+
+    .card {
+        min-height: auto;
+        padding: 20px;
+    }
+
+    .botonera {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-edit {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .form_area {
+        padding: 0 10px;
+    }
+
+    .form_style {
+        max-width: 100%;
+    }
 }
